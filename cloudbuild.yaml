@@ -1,0 +1,8 @@
+- name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        while IFS= read -r project; do
+         gcloud builds submit --config ./<path-to>/$project/project-specific-cloudbuild.yaml .
+        done < affected.txt
